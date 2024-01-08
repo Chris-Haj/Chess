@@ -7,18 +7,24 @@
 body{
     height: 100vh;
     width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute; /* Allows the body to be centered */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
 }
 
 .game{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*padding:20px;*/
+
+    background: #a85201;
 }
+
+
 
 /*#board{
     display: grid;

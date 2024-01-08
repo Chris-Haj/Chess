@@ -19,33 +19,33 @@ class Board {
         let darkTile = '#b88b4a'
         let lightTile = '#e3c16f'
         let tile = false;
-        let tileSize = Math.floor(this.size/9);
-        for (let i = 1; i <= 8; i++) {
-            for (let j = 1; j <= 8; j++) {
-                let x = j * tileSize;
-                let y = i * tileSize;
-
-                this.context.beginPath(); // Start a new path for each tile
-                this.context.rect(x, y, tileSize, tileSize);
+        let tileSize = Math.floor(this.size/8);
+        for(let i = 0;i<8;i++){
+            for(let j = 0 ;j<8;j++){
+                this.context.beginPath();
+                this.context.rect(x,y,tileSize,tileSize);
                 this.context.fillStyle = tile ? darkTile : lightTile;
                 this.context.fill();
-
-                tile = !tile; // Toggle tile color for next tile
+                tile = !tile;
+                x+=tileSize
             }
-            tile = !tile; // Toggle tile color for start of next row
+            tile = !tile;
+            x=0;
+            y+=tileSize;
         }
     }
-
 }
 
 $(document).ready(() => {
-    const canvas = $('.boardCan')[0];
-    canvas.width = Math.floor(window.innerHeight/1.1);
-    canvas.height = Math.floor(window.innerHeight/1.1);
-
+    const canvas = $('.game')[0];
     const context = canvas.getContext('2d');
+
+    canvas.width = Math.floor(window.innerHeight/1.125);
+    canvas.height = Math.floor(window.innerHeight/1.125);
     const board = new Board(canvas.height,context);
+
+    // console.log(canvas.height,canvas.width);
     board.draw();
-    console.log(board.ranks);
+    // console  .log(board.ranks);
 })
 
