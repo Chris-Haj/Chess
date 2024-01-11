@@ -14,12 +14,11 @@ class Board {
         );
     }
 
-    draw() {
+    draw(tileSize) {
         let x = 0,y = 0;
         let darkTile = '#b88b4a'
         let lightTile = '#e3c16f'
         let tile = false;
-        let tileSize = Math.floor(this.size/8);
         for(let i = 0;i<8;i++){
             for(let j = 0 ;j<8;j++){
                 this.context.beginPath();
@@ -36,16 +35,4 @@ class Board {
     }
 }
 
-$(document).ready(() => {
-    const canvas = $('.game')[0];
-    const context = canvas.getContext('2d');
-
-    canvas.width = Math.floor(window.innerHeight/1.125);
-    canvas.height = Math.floor(window.innerHeight/1.125);
-    const board = new Board(canvas.height,context);
-
-    // console.log(canvas.height,canvas.width);
-    board.draw();
-    // console  .log(board.ranks);
-})
 
